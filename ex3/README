@@ -1,0 +1,35 @@
+===========================================
+
+Timing measurements:
+big.txt:
+Parallel: *: 21.4344 +: 0.4001
+Sequential: *: 	88.3128 +: 0.1983
+small.txt:
+Parallel: *: 0.000145 +: 0.000193
+Sequential: *: 	0.000 +: 0.000
+
+===========================================
+
+Questions
+
+1. Difference between sequential and parallel:
+A large difference is shown obviously in the big matrix file, since there
+are a lot more factors to calculate than in the small matrix and the parallel
+mode calculates the same amount of operators only in a parallel time and not
+linear time. Which causes the result to be found in only quarter to the time
+it takes the sequential mode to calculate.
+
+A small difference is shown in the small matrix calculation runtime. 
+Creating threads for each operation takes more time than just forward calculation.
+So when the number of operations is so small, there is no benefit from using
+parallel mode.
+
+
+2. Difference between addition and multiplication.
+Multiplication of two matrices takes a lot more calculations than addition of two
+matrices. 
+Again, we can see that in the large matrix test run since the number of calculations 
+performed is much larger than in summation.
+
+In small matrices, where the number of calculations is almost similar (in not alike),
+between the two operations, there’s hardly any difference.

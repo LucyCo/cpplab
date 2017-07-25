@@ -1,0 +1,29 @@
+Ex2 README
+
+Design
+------
+
+I tried using polymorphism as much as possible. so the most natural way was to divide
+the compositions to two kinds, which is the Instrumental Composition and the
+Lyrical Composition.
+In order to avoid code duplications I wrote a header class for an abstract base
+composition, from which, the two types of composition classes with derive from.
+In order to determine which of the Compositions the given stream is. I created
+the Composition Factory header + implementation files. Which isn’t under the
+base composition class but includes it. This way the factory, once determining which
+of the compositions the given stream is, creates an instance for that composition.
+
+I gave a similar design to the Rankers. There’s the abstract class, the base weight
+ranker. The four types of ranker classes are declared in the Ranker Types header file
+the relevant constructors and functions (function which checks how much a given
+keyword is relevant to the current composition is override for each of the ranker types).
+Along with the ranker types there’s the Ranker factory, which, much like Composition
+Factory, determines which types of ranker is in the current stream and creates an
+instance of that ranker (shared pointer).
+
+There’s also a header file with saved strings that are beings used by both Factories
+(just for convenience). 
+
+And there’s the main file MIR which eventually is the executable which runs the 
+search which the given file parameters and prints out the results. (it uses both
+factories).
